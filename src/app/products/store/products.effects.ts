@@ -16,7 +16,7 @@ export class ProductsEffects {
           catchError((error) =>
             of(
               ProductsActions.loadProductsFailure({
-                error: error?.message || 'Unknown error occurred',
+                error: error,
               })
             )
           )

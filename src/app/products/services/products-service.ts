@@ -10,7 +10,7 @@ export class ProductsService {
   getProducts(): Observable<Product[]> {
     return this._httpClient.get<ProductsResponse>('https://fakeapi.net/products').pipe(
       map((response: ProductsResponse) => response.data),
-      catchError((error) => throwError(() => new Error('Failed to load products')))
+      catchError(() => throwError(() => 'Failed to load products'))
     );
   }
 }

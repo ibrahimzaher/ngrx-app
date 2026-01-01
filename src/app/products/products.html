@@ -3,13 +3,14 @@
 <span>Loading...</span>
 } @else if (products().length>0) {
 <ul>
-  @for (procuct of products(); track $index) {
-  <li>{{ procuct.title }} - {{ procuct.price }}</li>
+  @for (product of products(); track $index) {
+  <li>{{ product.id }} - {{ product.title }} - {{ product.price }}</li>
   }
 </ul>
 <button (click)="addProduct()">Add Product</button>
-<button (click)="editProduct()">Edit Product</button>
-<button (click)="deleteProduct()">Delete Product</button>
+<button (click)="editLastProduct()">Edit Last Product</button>
+<button (click)="deleteLastProduct()">Delete Product</button>
+
 } @else if (error()) {
-<span>Error: {{ error() }}</span>
+<span>{{ error() }}</span>
 }
