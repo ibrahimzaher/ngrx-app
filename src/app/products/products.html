@@ -1,0 +1,15 @@
+<p>products works!</p>
+@if (loading()) {
+<span>Loading...</span>
+} @else if (products().length>0) {
+<ul>
+  @for (procuct of products(); track $index) {
+  <li>{{ procuct.title }} - {{ procuct.price }}</li>
+  }
+</ul>
+<button (click)="addProduct()">Add Product</button>
+<button (click)="editProduct()">Edit Product</button>
+<button (click)="deleteProduct()">Delete Product</button>
+} @else if (error()) {
+<span>Error: {{ error() }}</span>
+}
